@@ -1,0 +1,26 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main, staging, qa, development]
+  pull_request:
+    branches: [main, staging, qa, development]
+
+jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run Knip & Ultracite Formatter and Linter
+        run: bun run check:all
