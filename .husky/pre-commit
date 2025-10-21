@@ -1,0 +1,22 @@
+#!/bin/bash
+echo "Running pre-commit checks..."
+
+if ! bun x knip --fix; then
+  echo "There are still unused codes, dependencies, and file.  Please fix them before committing."
+  exit 1
+fi
+
+# Check for linting errors
+if ! bun x ultracite lint; then
+  echo "Linting errors found. Please fix them before committing."
+  exit 1
+fi
+
+# Check for formatting issues
+if ! bun x ultracite format; then
+  echo "Formatting issues found. Please format your code before committing."
+  exit 1
+fi
+
+echo "Pre-commit checks passed."
+exit 0
