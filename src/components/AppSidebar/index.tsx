@@ -4,8 +4,6 @@ import {
   ChevronDownIcon,
   ChevronRight,
   CircleSmallIcon,
-  HousePlus,
-  LayoutDashboard,
   LogOutIcon,
 } from "lucide-react";
 import Image from "next/image";
@@ -40,30 +38,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Separator } from "../ui/separator";
-
-type MenuItem = {
-  label: string;
-  href?: string;
-  icon?: React.ComponentType<{ className?: string }>;
-  items?: MenuItem[];
-};
-
-const menuItems: MenuItem[] = [
-  {
-    label: "Dashboard",
-    href: "/",
-    icon: LayoutDashboard,
-  },
-  {
-    label: "Properties",
-    icon: HousePlus,
-    items: [
-      { label: "All Properties", href: "/properties" },
-      { label: "Active Listings", href: "/properties/active" },
-      { label: "Sold Properties", href: "/properties/sold" },
-    ],
-  },
-];
+import { type MenuItem, menuItems } from "./menu-items";
 
 type AppSidebarProps = {
   user?: string;

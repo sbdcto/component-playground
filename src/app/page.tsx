@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <Card className="h-full overflow-hidden rounded-4xl bg-primary-foreground px-5 py-7 shadow-xs">
+    <Card className="h-full rounded-4xl border-none bg-primary-foreground">
       <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start">
         <Image
           alt="Next.js logo"
